@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris's Hand-Made Designed Diya Collection</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#D2691E',
+                        'terracotta-dark': '#B35414',
+                        'festive-blue': '#1E40AF',
+                        'festive-navy': '#0F172A',
+                        'festive-gold': '#F59E0B',
+                        'gold-light': '#FEF3C7',
+                        'warm-cream': '#FAF7F2'
+                    },
+                    fontFamily: {
+                        heading: ['Rozha One', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF7F2;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+        }
+        .diya-card:hover {
+            transform: translateY(-4px);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col justify-between selection:bg-amber-200">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-amber-600 via-orange-500 to-amber-600 text-white text-xs sm:text-sm text-center py-2 px-4 font-medium flex items-center justify-center gap-2 shadow-sm">
+        <i class="fa-solid fa-sparkles text-amber-200 animate-pulse"></i>
+        <span>Handcrafted with Love by Iris • All Designer Diyas at <strong>₹20 Only!</strong></span>
+        <i class="fa-solid fa-sparkles text-amber-200 animate-pulse"></i>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-amber-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            <!-- Brand Logo / Name -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center text-amber-300 shadow-md">
+                    <i class="fa-solid fa-fire-flame-curved text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-heading text-lg sm:text-xl text-slate-900 tracking-wide leading-tight">Iris's Diyas</h1>
+                    <p class="text-[10px] sm:text-xs text-amber-700 font-semibold tracking-wider uppercase">Hand-Painted Collection</p>
+                </div>
+            </div>
+
+            <!-- Header Action Buttons -->
+            <div class="flex items-center gap-3">
+                <button onclick="scrollToCollection()" class="hidden sm:inline-flex items-center gap-2 text-slate-600 hover:text-amber-700 text-sm font-medium px-3 py-1.5 rounded-lg hover:bg-amber-50 transition">
+                    <i class="fa-solid fa-store"></i> Browse Collection
+                </button>
+                <button onclick="toggleCartModal()" class="relative inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-950 text-white text-sm font-semibold px-4 py-2 rounded-xl transition shadow-md shadow-blue-900/20 active:scale-95">
+                    <i class="fa-solid fa-basket-shopping text-amber-400"></i>
+                    <span class="hidden sm:inline">My Basket</span>
+                    <span id="cart-count-badge" class="bg-amber-500 text-slate-900 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Banner Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-amber-500/10 via-orange-500/5 to-transparent pt-8 pb-12 sm:pt-12 sm:pb-16 px-4">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- Decorative Badge -->
+            <div class="inline-flex items-center gap-2 bg-amber-100 border border-amber-300 text-amber-900 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-4 shadow-sm">
+                <i class="fa-solid fa-palette text-orange-600"></i> 100% Unique Hand-Painted Terracotta
+            </div>
+            
+            <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl text-slate-900 mb-4 leading-tight">
+                Brighten Your Celebrations with <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-blue-700 via-indigo-800 to-amber-700 bg-clip-text text-transparent">Iris's Hand-Made Diyas</span>
+            </h1>
+
+            <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+                Every single diya in this collection is lovingly sculpted from clay, hand-painted with intricate vibrant patterns, floral starbursts, and vibrant cobalt blue accents by young artist <strong>Iris</strong>.
+            </p>
+
+            <!-- Quick Info Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
+                <div class="bg-white/80 border border-amber-100 p-3 rounded-2xl text-center shadow-sm">
+                    <div class="text-amber-600 font-bold text-lg">₹20</div>
+                    <div class="text-xs text-slate-500">Flat Price per Diya</div>
+                </div>
+                <div class="bg-white/80 border border-amber-100 p-3 rounded-2xl text-center shadow-sm">
+                    <div class="text-blue-700 font-bold text-lg"><i class="fa-solid fa-paintbrush"></i></div>
+                    <div class="text-xs text-slate-500">Hand-Painted Art</div>
+                </div>
+                <div class="bg-white/80 border border-amber-100 p-3 rounded-2xl text-center shadow-sm">
+                    <div class="text-amber-600 font-bold text-lg"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="text-xs text-slate-500">Eco-Friendly Clay</div>
+                </div>
+                <div class="bg-white/80 border border-amber-100 p-3 rounded-2xl text-center shadow-sm">
+                    <div class="text-blue-700 font-bold text-lg"><i class="fa-solid fa-heart"></i></div>
+                    <div class="text-xs text-slate-500">Made with Love</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main id="collection-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+        
+        <!-- Section Header & Filter Tags -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 pb-4 border-b border-slate-200">
+            <div>
+                <h2 class="font-heading text-2xl sm:text-3xl text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-amber-500 text-xl"></i> Explore Diya Collection
+                </h2>
+                <p class="text-slate-500 text-xs sm:text-sm mt-1">Select your favorite designs to add to your festive basket.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterCatalog('all')" id="filter-all" class="filter-btn active text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-900 text-white shadow-sm transition">All Designs</button>
+                <button onclick="filterCatalog('featured')" id="filter-featured" class="filter-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-amber-400 transition">Featured Photos</button>
+                <button onclick="filterCatalog('floral')" id="filter-floral" class="filter-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-amber-400 transition">Floral Motifs</button>
+                <button onclick="filterCatalog('royal')" id="filter-royal" class="filter-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-amber-400 transition">Royal Blue Trims</button>
+            </div>
+        </div>
+
+        <!-- Diya Catalog Cards Grid -->
+        <div id="diyas-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Cards will be populated by JavaScript -->
+        </div>
+
+        <!-- Personal Story Section from Iris -->
+        <section class="mt-16 bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-3xl p-6 sm:p-10 text-white relative overflow-hidden shadow-xl">
+            <!-- Decorative Background Flame -->
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-[200px] text-amber-400 pointer-events-none">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+            
+            <div class="max-w-3xl relative z-10">
+                <div class="inline-flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+                    <i class="fa-solid fa-quote-left"></i> Note from the Creator
+                </div>
+                <h3 class="font-heading text-2xl sm:text-3xl mb-4 text-amber-100">"Crafted to bring light, colors, and joy to your home."</h3>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    Hi! I'm Iris. Each diya in this collection is individually painted by hand using vivid clay acrylic colors. Inspired by traditional festive flowers and vibrant royal blues, no two diyas are exactly alike! Thank you for supporting my small handmade art initiative.
+                </p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-amber-500 text-slate-900 flex items-center justify-center font-bold font-heading text-lg">
+                        I
+                    </div>
+                    <div>
+                        <div class="font-semibold text-sm text-amber-200">Iris</div>
+                        <div class="text-xs text-slate-400">Artist & Creator</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+            <div class="flex items-center justify-center gap-2 text-amber-400 font-heading text-lg">
+                <i class="fa-solid fa-fire"></i> Iris's Hand-Made Diya Collection
+            </div>
+            <p class="text-slate-500">Hand-sculpted & painted terracotta diyas • ₹20 per piece</p>
+            <p>© 2026 Iris's Hand-Made Designed Collection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Slide-over / Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="toggleCartModal()"></div>
+
+        <!-- Modal Panel -->
+        <div class="fixed inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl flex flex-col z-10">
+            <!-- Cart Header -->
+            <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-basket-shopping text-amber-400"></i>
+                    <h3 class="font-heading text-lg text-white">Your Diya Basket</h3>
+                </div>
+                <button onclick="toggleCartModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items-container" class="flex-grow p-4 overflow-y-auto space-y-4">
+                <!-- Empty State -->
+                <div id="empty-cart-msg" class="text-center py-12 text-slate-400 space-y-3">
+                    <i class="fa-solid fa-box-open text-4xl text-slate-300"></i>
+                    <p class="text-sm">Your basket is currently empty.</p>
+                    <button onclick="toggleCartModal()" class="text-xs font-semibold text-blue-700 hover:underline">Start adding diyas!</button>
+                </div>
+            </div>
+
+            <!-- Cart Summary & Order Trigger -->
+            <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
+                <div class="flex justify-between text-sm text-slate-600">
+                    <span>Total Items:</span>
+                    <span id="cart-total-qty" class="font-bold text-slate-900">0</span>
+                </div>
+                <div class="flex justify-between text-base font-bold text-slate-900 pt-2 border-t border-slate-200">
+                    <span>Total Price:</span>
+                    <span id="cart-total-price" class="text-amber-700 text-xl font-extrabold">₹0</span>
+                </div>
+
+                <button onclick="openCheckoutModal()" id="checkout-btn" disabled class="w-full bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed text-slate-900 font-bold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Proceed to Order / Reserve
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order / Reserve Modal Form -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm" onclick="closeCheckoutModal()"></div>
+
+        <!-- Form Card -->
+        <div class="relative bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden z-10 my-8">
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 p-6 text-white flex justify-between items-center">
+                <div>
+                    <h3 class="font-heading text-xl text-amber-200">Reserve Iris's Diyas</h3>
+                    <p class="text-xs text-slate-300">Complete details to confirm your hand-painted diya order.</p>
+                </div>
+                <button onclick="closeCheckoutModal()" class="text-slate-300 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="order-form" onsubmit="handleOrderSubmit(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+                <!-- Order Summary Preview -->
+                <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs text-amber-900 flex justify-between items-center">
+                    <div>
+                        <span class="font-semibold">Items Selected:</span> <span id="modal-order-summary">0 Diyas</span>
+                    </div>
+                    <div class="font-bold text-sm text-amber-800" id="modal-order-total">
+                        Total: ₹0
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Your Name *</label>
+                    <input type="text" required id="cust-name" placeholder="Enter your full name" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Phone Number (WhatsApp) *</label>
+                    <input type="tel" required id="cust-phone" placeholder="Enter 10-digit mobile number" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Delivery Address / Pickup Notes *</label>
+                    <textarea required id="cust-address" rows="3" placeholder="Enter your complete address or pickup details" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Special Art Requests / Notes</label>
+                    <input type="text" id="cust-notes" placeholder="e.g. Any color preference, festival date" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-blue-900 hover:bg-blue-950 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-check text-amber-400"></i> Confirm Order Reservation
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Confirmation Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
+        <div class="relative bg-white rounded-3xl max-w-sm w-full p-6 text-center space-y-4 shadow-2xl z-10">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-3xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-heading text-2xl text-slate-900">Order Received!</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Thank you so much! Iris has received your order reservation. We will reach out on your mobile number to coordinate delivery!
+            </p>
+            <div id="order-ref-code" class="bg-slate-100 p-2 rounded-lg text-xs font-mono text-slate-700 font-bold"></div>
+            <button onclick="closeSuccessModal()" class="w-full bg-slate-900 text-white font-bold py-2.5 rounded-xl text-sm hover:bg-slate-800 transition">
+                Back to Storefront
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Data & Interactivity -->
+    <script>
+        // Catalog Products Data (matching uploaded photos + complementary hand-painted variations)
+        const diyaProducts = [
+            {
+                id: 'diya-1',
+                name: 'Royal Blue Floral Clay Diya',
+                subtitle: 'Match from Iris’s Collection',
+                price: 20,
+                tags: ['featured', 'royal', 'floral'],
+                badge: 'Iris Original',
+                badgeColor: 'bg-blue-700 text-white',
+                description: 'Natural terracotta diya featuring a vibrant cobalt blue painted rim and a hand-painted central starburst floral artwork in white, blue, and leaf-green.',
+                svg: `
+                <svg viewBox="0 0 200 200" class="w-full h-48 object-contain drop-shadow-md">
+                    <!-- Background terracotta clay base shadow -->
+                    <ellipse cx="100" cy="115" rx="80" ry="70" fill="#B35414" />
+                    <!-- Terracotta Outer Wall -->
+                    <ellipse cx="100" cy="110" rx="78" ry="68" fill="#D2691E" />
+                    <!-- Hand Painted Blue Rim -->
+                    <path d="M 22,110 C 22,60 178,60 178,110 C 178,155 22,155 22,110 Z" fill="none" stroke="#1E40AF" stroke-width="16" />
+                    <path d="M 22,110 C 22,65 178,65 178,110 C 178,150 22,150 22,110 Z" fill="none" stroke="#2563EB" stroke-width="8" stroke-dasharray="4 2" />
+                    <!-- Diya Wick Tip -->
+                    <path d="M 25,105 Q 10,105 18,95 Q 26,90 35,100 Z" fill="#D2691E" />
+                    <ellipse cx="20" cy="98" rx="6" ry="12" fill="#1E40AF" />
+                    <!-- Inner Base Surface -->
+                    <ellipse cx="102" cy="110" rx="56" ry="46" fill="#E07A28" />
+                    <!-- Hand-painted Central Starburst Flower (User photo 1) -->
+                    <!-- White Outer Petals -->
+                    <circle cx="102" cy="94" r="8" fill="#FFFFFF" />
+                    <circle cx="102" cy="126" r="8" fill="#FFFFFF" />
+                    <circle cx="86" cy="110" r="8" fill="#FFFFFF" />
+                    <circle cx="118" cy="110" r="8" fill="#FFFFFF" />
+                    <!-- Green Accent Dots -->
+                    <circle cx="88" cy="96" r="4" fill="#16A34A" />
+                    <circle cx="116" cy="96" r="4" fill="#16A34A" />
+                    <circle cx="88" cy="124" r="4" fill="#16A34A" />
+                    <circle cx="116" cy="124" r="4" fill="#16A34A" />
+                    <!-- Center Cobalt Starburst -->
+                    <polygon points="102,98 105,107 114,110 105,113 102,122 99,113 90,110 99,107" fill="#1E40AF" />
+                    <circle cx="102" cy="110" r="3" fill="#FFFFFF" />
+                </svg>`
+            },
+            {
+                id: 'diya-2',
+                name: 'Ocean Breeze Outer Petal Diya',
+                subtitle: 'Match from Iris’s Collection',
+                price: 20,
+                tags: ['featured', 'royal', 'floral'],
+                badge: 'Side Artwork',
+                badgeColor: 'bg-amber-600 text-white',
+                description: 'Features vibrant hand-painted blue floral petals and green leaf motifs around the outer terracotta clay wall, topped with a deep blue rim.',
+                svg: `
+                <svg viewBox="0 0 200 200" class="w-full h-48 object-contain drop-shadow-md">
+                    <!-- Terracotta Diya Side Profile View (User Photo 2) -->
+                    <path d="M 30,85 Q 100,60 170,85 Q 160,165 100,165 Q 40,165 30,85 Z" fill="#D2691E" />
+                    <path d="M 35,85 Q 100,65 165,85 Q 155,160 100,160 Q 45,160 35,85 Z" fill="#B35414" />
+                    <!-- Blue Painted Top Rim -->
+                    <path d="M 26,85 Q 100,58 174,85 Q 170,95 100,75 Q 30,95 26,85 Z" fill="#1E40AF" />
+                    <!-- Hand-painted Side Motifs (Blue Flowers + Green Leaves) -->
+                    <!-- Flower 1 Left -->
+                    <g transform="translate(60, 115)">
+                        <circle cx="0" cy="-6" r="4" fill="#1E40AF" />
+                        <circle cx="-6" cy="0" r="4" fill="#1E40AF" />
+                        <circle cx="6" cy="0" r="4" fill="#1E40AF" />
+                        <circle cx="0" cy="6" r="4" fill="#1E40AF" />
+                        <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
+                    </g>
+                    <!-- Green Leaf Center -->
+                    <path d="M 100,105 Q 95,115 100,128 Q 105,115 100,105 Z" fill="#16A34A" />
+                    <path d="M 100,105 Q 108,112 115,118 Q 105,120 100,105 Z" fill="#16A34A" />
+                    <!-- Flower 2 Right -->
+                    <g transform="translate(140, 115)">
+                        <circle cx="0" cy="-6" r="4" fill="#1E40AF" />
+                        <circle cx="-6" cy="0" r="4" fill="#1E40AF" />
+                        <circle cx="6" cy="0" r="4" fill="#1E40AF" />
+                        <circle cx="0" cy="6" r="4" fill="#1E40AF" />
+                        <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
+                    </g>
+                </svg>`
+            },
+            {
+                id: 'diya-3',
+                name: 'Classic Festive Star Diya',
+                subtitle: 'Handmade Craft',
+                price: 20,
+                tags: ['floral', 'featured'],
+                badge: 'Popular',
+                badgeColor: 'bg-emerald-600 text-white',
+                description: 'Earthy terracotta base with bright starburst center painted with white highlights and vibrant teal-green floral dots.',
+                svg: `
+                <svg viewBox="0 0 200 200" class="w-full h-48 object-contain drop-shadow-md">
+                    <ellipse cx="100" cy="110" rx="76" ry="66" fill="#C85A17" />
+                    <ellipse cx="100" cy="110" rx="68" ry="58" fill="#1E3A8A" />
+                    <ellipse cx="100" cy="110" rx="56" ry="46" fill="#D2691E" />
+                    <!-- Floral Art -->
+                    <polygon points="100,80 106,100 125,100 110,112 116,130 100,118 84,130 90,112 75,100 94,100" fill="#F59E0B" />
+                    <circle cx="100" cy="105" r="8" fill="#FFFFFF" />
+                    <circle cx="100" cy="105" r="4" fill="#1E40AF" />
+                </svg>`
+            },
+            {
+                id: 'diya-4',
+                name: 'Golden Sparkle Cobalt Diya',
+                subtitle: 'Handmade Craft',
+                price: 20,
+                tags: ['royal'],
+                badge: 'Best Seller',
+                badgeColor: 'bg-indigo-600 text-white',
+                description: 'Rich royal blue body with traditional golden hand-painted accents surrounding the rim, designed to glisten when lit.',
+                svg: `
+                <svg viewBox="0 0 200 200" class="w-full h-48 object-contain drop-shadow-md">
+                    <ellipse cx="100" cy="110" rx="76" ry="66" fill="#1E40AF" />
+                    <ellipse cx="100" cy="110" rx="64" ry="54" fill="#E07A28" />
+                    <!-- Golden Dot Trim -->
+                    <circle cx="50" cy="110" r="4" fill="#F59E0B" />
+                    <circle cx="150" cy="110" r="4" fill="#F59E0B" />
+                    <circle cx="100" cy="60" r="4" fill="#F59E0B" />
+                    <circle cx="100" cy="160" r="4" fill="#F59E0B" />
+                    <circle cx="65" cy="75" r="4" fill="#F59E0B" />
+                    <circle cx="135" cy="75" r="4" fill="#F59E0B" />
+                    <circle cx="65" cy="145" r="4" fill="#F59E0B" />
+                    <circle cx="135" cy="145" r="4" fill="#F59E0B" />
+                    <!-- Center Flower -->
+                    <circle cx="100" cy="110" r="14" fill="#FFFFFF" />
+                    <circle cx="100" cy="110" r="8" fill="#1E40AF" />
+                </svg>`
+            }
+        ];
+
+        // Shopping Cart State
+        let cart = {};
+
+        // Render Catalog Cards
+        function renderCatalog(filter = 'all') {
+            const container = document.getElementById('diyas-grid');
+            container.innerHTML = '';
+
+            const filtered = diyaProducts.filter(item => {
+                if (filter === 'all') return true;
+                return item.tags.includes(filter);
+            });
+
+            filtered.forEach(product => {
+                const qty = cart[product.id] || 0;
+                
+                const card = document.createElement('div');
+                card.className = "diya-card bg-white rounded-3xl border border-slate-200/80 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group";
+                
+                card.innerHTML = `
+                    <div>
+                        <!-- Top Badge & Price -->
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="${product.badgeColor} text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full tracking-wider shadow-sm">
+                                ${product.badge}
+                            </span>
+                            <div class="bg-amber-50 border border-amber-200 text-amber-900 font-extrabold text-sm px-2.5 py-1 rounded-xl">
+                                ₹${product.price}
+                            </div>
+                        </div>
+
+                        <!-- SVG Diya Art Render -->
+                        <div class="my-4 bg-slate-50/70 rounded-2xl p-2 border border-slate-100 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                            ${product.svg}
+                        </div>
+
+                        <!-- Title & Description -->
+                        <h3 class="font-heading text-lg text-slate-900 mb-0.5 leading-snug">${product.name}</h3>
+                        <p class="text-[11px] font-semibold text-amber-700 mb-2">${product.subtitle}</p>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-4">${product.description}</p>
+                    </div>
+
+                    <!-- Quantity Control & Add Button -->
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                        <div class="flex items-center border border-slate-200 rounded-xl bg-slate-50 overflow-hidden">
+                            <button onclick="updateQty('${product.id}', -1)" class="w-8 h-8 flex items-center justify-center text-slate-600 hover:bg-slate-200 font-bold transition">-</button>
+                            <span class="w-8 text-center text-xs font-bold text-slate-800">${qty}</span>
+                            <button onclick="updateQty('${product.id}', 1)" class="w-8 h-8 flex items-center justify-center text-slate-600 hover:bg-slate-200 font-bold transition">+</button>
+                        </div>
+
+                        <button onclick="addToCartDirect('${product.id}')" class="flex-grow bg-blue-900 hover:bg-blue-950 text-white text-xs font-bold py-2.5 px-3 rounded-xl shadow-sm transition flex items-center justify-center gap-1.5 active:scale-95">
+                            <i class="fa-solid fa-plus text-amber-400"></i> Add
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter Catalog Function
+        function filterCatalog(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.className = "filter-btn text-xs font-semibold px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-amber-400 transition";
+            });
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if (activeBtn) {
+                activeBtn.className = "filter-btn active text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-900 text-white shadow-sm transition";
+            }
+            renderCatalog(category);
+        }
+
+        // Update Item Quantity in Cart
+        function updateQty(productId, change) {
+            const current = cart[productId] || 0;
+            const updated = Math.max(0, current + change);
+            if (updated === 0) {
+                delete cart[productId];
+            } else {
+                cart[productId] = updated;
+            }
+            renderCatalog();
+            updateCartUI();
+        }
+
+        // Direct Add to Cart
+        function addToCartDirect(productId) {
+            updateQty(productId, 1);
+            toggleCartModal(true); // Open cart sidebar when added
+        }
+
+        // Update Cart Modal & Badge UI
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const emptyMsg = document.getElementById('empty-cart-msg');
+            const totalQtyBadge = document.getElementById('cart-count-badge');
+            const totalQtySpan = document.getElementById('cart-total-qty');
+            const totalPriceSpan = document.getElementById('cart-total-price');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            // Clear old items except empty message
+            cartItemsContainer.innerHTML = '';
+
+            const itemKeys = Object.keys(cart);
+
+            if (itemKeys.length === 0) {
+                cartItemsContainer.appendChild(emptyMsg);
+                emptyMsg.classList.remove('hidden');
+                checkoutBtn.disabled = true;
+            } else {
+                emptyMsg.classList.add('hidden');
+                checkoutBtn.disabled = false;
+
+                itemKeys.forEach(id => {
+                    const product = diyaProducts.find(p => p.id === id);
+                    const qty = cart[id];
+                    const itemTotal = qty * product.price;
+
+                    totalQty += qty;
+                    totalPrice += itemTotal;
+
+                    const itemRow = document.createElement('div');
+                    itemRow.className = "flex items-center justify-between bg-slate-50 border border-slate-200 p-3 rounded-2xl";
+                    itemRow.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-white rounded-xl p-1 border border-slate-200 flex items-center justify-center">
+                                ${product.svg}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900">${product.name}</h4>
+                                <div class="text-[11px] text-slate-500">₹${product.price} × ${qty}</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-sm text-slate-900">₹${itemTotal}</span>
+                            <button onclick="updateQty('${product.id}', -${qty})" class="text-slate-400 hover:text-red-500 text-sm ml-1">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(itemRow);
+                });
+            }
+
+            totalQtyBadge.innerText = totalQty;
+            totalQtySpan.innerText = `${totalQty} Diyas`;
+            totalPriceSpan.innerText = `₹${totalPrice}`;
+        }
+
+        // Cart Slide-Over Toggle
+        function toggleCartModal(forceOpen = false) {
+            const modal = document.getElementById('cart-modal');
+            if (forceOpen || modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Open Checkout Modal
+        function openCheckoutModal() {
+            toggleCartModal(); // close cart
+            
+            let totalQty = 0;
+            let totalPrice = 0;
+            Object.keys(cart).forEach(id => {
+                const product = diyaProducts.find(p => p.id === id);
+                totalQty += cart[id];
+                totalPrice += cart[id] * product.price;
+            });
+
+            document.getElementById('modal-order-summary').innerText = `${totalQty} Hand-Painted Diya(s)`;
+            document.getElementById('modal-order-total').innerText = `Total: ₹${totalPrice}`;
+            
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        // Handle Order Submission
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('cust-name').value;
+            const refCode = "IRIS-DIYA-" + Math.floor(100000 + Math.random() * 900000);
+            
+            document.getElementById('order-ref-code').innerText = `Reservation Ref: ${refCode}`;
+            
+            // Reset Cart & Close Modal
+            cart = {};
+            renderCatalog();
+            updateCartUI();
+            closeCheckoutModal();
+
+            // Open Success Modal
+            document.getElementById('success-modal').classList.remove('hidden');
+            document.getElementById('order-form').reset();
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        function scrollToCollection() {
+            document.getElementById('collection-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize Catalog on Load
+        window.onload = function() {
+            renderCatalog();
+            updateCartUI();
+        };
+    </script>
+</body>
+</html>
